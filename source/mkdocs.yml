@@ -1,1 +1,10 @@
-site_name: My Docs
+site_name: Сайт портфолио (ну и первая лаболаторная 2 семестра по python :) )
+theme:
+  name: material
+nav:
+  - Главная: index.md
+  - Об авторе: about.md
+  - Лабораторные работы:
+      - Лабораторная 1: labs/lab1.md
+      - Лабораторная 2: labs/lab2.md
+      - Лабораторная 3: labs/lab3.md
