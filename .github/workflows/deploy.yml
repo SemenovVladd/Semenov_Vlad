@@ -4,13 +4,24 @@ on:
   push:
     branches: [main]
 
+# ЭТО ВАЖНО: даём права на запись в репозиторий
+permissions:
+  contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
       - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
-      - run: pip install mkdocs-material
-      - run: mkdocs gh-deploy --force --clean --verbose
+      
+      - name: Install dependencies
+        run: pip install mkdocs mkdocs-material
+      
+      - name: Deploy to GitHub Pages
+        run: mkdocs gh-deploy --force --clean --verbose
